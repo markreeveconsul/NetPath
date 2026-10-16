@@ -1,0 +1,44 @@
+// Original companion diagrams. These describe intended wiring, not simulator state.
+const node=(id,kind,x,y,detail='')=>({id,kind,x,y,detail});
+const wire=(a,ap,b,bp,kind='copper',detail='')=>({a,ap,b,bp,kind,detail});
+const pc=(id,x,y,detail='')=>node(id,'PC-PT',x,y,detail);
+const sw=(id,x,y)=>node(id,'2960',x,y,'Layer 2 switch');
+const router=(id,x,y,detail='')=>node(id,'1941',x,y,detail);
+const lan=(a='Same subnet',b='Same subnet')=>({nodes:[pc('PC-A',115,210,a),sw('S1',380,210),pc('PC-B',645,210,b)],links:[wire('PC-A','Fa0','S1','Fa0/1'),wire('S1','Fa0/2','PC-B','Fa0')]});
+const routed=()=>({nodes:[pc('PC-A',105,330,'192.168.10.10/24'),sw('S1',105,190),router('R1',280,90,'Gateway: 192.168.10.1'),router('R2',480,90,'Gateway: 192.168.20.1'),sw('S2',655,190),pc('PC-B',655,330,'192.168.20.10/24')],links:[wire('PC-A','Fa0','S1','Fa0/1'),wire('S1','Gi0/1','R1','Gi0/0'),wire('R1','Gi0/1','R2','Gi0/1','copper','10.0.0.0/30'),wire('R2','Gi0/0','S2','Gi0/1'),wire('S2','Fa0/1','PC-B','Fa0')],note:'Routers use .1 and .2 on the transit /30. Host default gateways are their local router LAN addresses.'});
+export const topologies={
+ 'first-lan':lan('192.168.1.10/24','192.168.1.20/24'),
+ 'vlan-lab':lan('VLAN 10 · 192.168.10.10/24','VLAN 20 · 192.168.20.20/24'),
+ 'ipv6-lan':lan('2001:db8:10::10/64','2001:db8:10::20/64'),
+ 'trunk-lab':{nodes:[pc('PC-A',110,320,'VLAN 10'),sw('S1',210,120),sw('S2',550,120),pc('PC-B',650,320,'VLAN 10')],links:[wire('PC-A','Fa0','S1','Fa0/1'),wire('S1','Gi0/1','S2','Gi0/1','trunk','802.1Q · VLAN 10'),wire('S2','Fa0/1','PC-B','Fa0')]},
+ 'static-lab':routed(),
+ 'ospf-lab':{...routed(),note:'Reuse the static lab addressing. Remove the two static remote-LAN routes before testing OSPF. Transit adjacency is in area 0; LAN interfaces are passive.'},
+ 'dhcp-lab':{nodes:[pc('PC-A',115,310,'DHCP client'),pc('PC-B',645,310,'DHCP client'),sw('S1',380,245),router('R1',380,75,'192.168.50.1/24 · DHCP')],links:[wire('PC-A','Fa0','S1','Fa0/1'),wire('PC-B','Fa0','S1','Fa0/2'),wire('S1','Gi0/1','R1','Gi0/0')]},
+ 'capstone-lab':{nodes:[pc('Engineering',115,325,'VLAN 10 · DHCP'),pc('Operations',645,325,'VLAN 20 · DHCP'),sw('S1',380,245),router('R1',380,75,'Gi0/0.10 and Gi0/0.20')],links:[wire('Engineering','Fa0','S1','Fa0/1'),wire('Operations','Fa0','S1','Fa0/2'),wire('S1','Gi0/1','R1','Gi0/0','trunk','802.1Q · VLANs 10,20')],note:'The trunk is one physical cable. Router subinterfaces .10 and .20 share Gi0/0 and use the respective VLAN tags.'},
+ 'stp-triangle':{nodes:[sw('S1',380,75),sw('S2',135,325),sw('S3',625,325)],links:[wire('S1','Fa0/1','S2','Fa0/1'),wire('S2','Fa0/2','S3','Fa0/1'),wire('S3','Fa0/2','S1','Fa0/2')],note:'Set S1 as root. Port roles and the non-forwarding link must be observed with show spanning-tree; line colors here do not predict live STP state.'},
+ 'lacp-lab':{nodes:[sw('S1',200,150),sw('S2',560,150),pc('PC-A',150,335,'VLAN 10 · 10.10.10.10/24'),pc('PC-B',610,335,'VLAN 10 · 10.10.10.20/24')],links:[wire('S1','Fa0/1','S2','Fa0/1','trunk','Port-channel 1 member'),wire('S1','Fa0/2','S2','Fa0/2','trunk','Port-channel 1 member'),wire('PC-A','Fa0','S1','Fa0/3'),wire('PC-B','Fa0','S2','Fa0/3')],note:'The two parallel cables form one logical port-channel after LACP is configured. PCs are added for the member-failure test in step 4.'},
+ 'nat-static':{nodes:[pc('Inside PC',105,300,'192.168.10.10/24'),sw('S1',275,220),router('R1',470,135,'Inside Gi0/0 · outside Gi0/1'),node('Outside server','Server-PT',650,300,'203.0.113.2/24')],links:[wire('Inside PC','Fa0','S1','Fa0/1'),wire('S1','Gi0/1','R1','Gi0/0'),wire('R1','Gi0/1','Outside server','Fa0')],note:'203.0.113.10 is a translated address, not another physical device. It maps to the inside PC.'},
+ 'ssh-lab':{nodes:[pc('Admin PC',115,210,'192.168.99.10/24'),sw('S1',380,210),router('R1',645,210,'192.168.99.1/24')],links:[wire('Admin PC','Fa0','S1','Fa0/1'),wire('S1','Gi0/1','R1','Gi0/0')]},
+ 'dhcp-relay':{nodes:[pc('Client PC',100,310,'DHCP · 192.168.60.0/24'),sw('S1',210,170),router('R1',380,80,'Gi0/0 helper: 192.168.70.2'),sw('S2',550,170),node('DHCP server','Server-PT',660,310,'192.168.70.2/24')],links:[wire('Client PC','Fa0','S1','Fa0/1'),wire('S1','Gi0/1','R1','Gi0/0'),wire('R1','Gi0/1','S2','Gi0/1'),wire('S2','Fa0/1','DHCP server','Fa0')]},
+ 'ntp-lab':{nodes:[router('R1',180,210,'10.1.1.1/30 · time source'),router('R2',580,210,'10.1.1.2/30 · NTP client')],links:[wire('R1','Gi0/0','R2','Gi0/0')]},
+ 'wireless-lab':{nodes:[node('Laptop','Laptop-PT',120,210,'Compatible wireless adapter'),node('Wireless router','WPA2-capable router',380,210,'LAN 192.168.0.1/24'),pc('Wired PC',640,210,'DHCP client')],links:[wire('Laptop','Wireless','Wireless router','Radio','wireless','SSID: NetPath-Lab'),wire('Wireless router','LAN port','Wired PC','Fa0')],note:'Use a LAN Ethernet port, not the Internet/WAN port. Wireless interface and LAN port names depend on the chosen model.'}
+};
+topologies['acl-lab']=routed();
+topologies['port-security']=lan('192.168.80.10/24 · approved MAC','192.168.80.20/24 · test peer');
+topologies['port-security'].note='Baseline wiring shown. Only in the fault copy, replace PC-A on Fa0/1 with PC-B. Restore this baseline before recovery.';
+topologies['ipv6-routing']=routed();
+topologies['ipv6-routing'].nodes.forEach(n=>{n.detail=({'PC-A':'2001:db8:10::10/64','PC-B':'2001:db8:20::20/64',R1:'LAN gateway 2001:db8:10::1',R2:'LAN gateway 2001:db8:20::1'})[n.id]||n.detail;});
+topologies['ipv6-routing'].links[2].detail='2001:db8:12::/64';
+topologies['ipv6-routing'].note='R1 uses 2001:db8:12::1 and R2 uses 2001:db8:12::2 on the transit link. Enable IPv6 forwarding on both routers.';
+topologies['acl-lab'].nodes.push(pc('PC-C',300,330,'192.168.10.11/24 · denied'));
+topologies['acl-lab'].links.push(wire('PC-C','Fa0','S1','Fa0/2'));
+topologies['acl-lab'].note='Apply LAB-POLICY inbound on R1 Gi0/0. Verify a permitted PC-A test and a denied PC-C test. Both use 192.168.10.1 as their gateway.';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function topologyText(id){const t=topologies[id];return t.links.map((l,i)=>`${i+1}. ${l.a} ${l.ap} ↔ ${l.b} ${l.bp} (${l.kind}${l.detail?'; '+l.detail:''})`).join('\n')+(t.note?'\n'+t.note:'');}
+export function topologyMarkup(id,selected=''){
+ const t=topologies[id];if(!t)return '';
+ const chosen=t.nodes.find(n=>n.id===selected);
+ const links=t.links.map((l,i)=>{const a=t.nodes.find(n=>n.id===l.a),b=t.nodes.find(n=>n.id===l.b),parallel=t.links.filter(e=>e.a===l.a&&e.b===l.b),offset=parallel.length>1?(parallel.indexOf(l)===0?-38:38):0,mx=(a.x+b.x)/2,my=(a.y+b.y)/2+offset;return `<g class="topo-link ${l.kind} ${chosen&&l.a!==selected&&l.b!==selected?'dim':''}"><path d="M${a.x},${a.y} Q${mx},${my+offset} ${b.x},${b.y}"/><circle cx="${mx}" cy="${my}" r="14"/><text x="${mx}" y="${my+5}">${i+1}</text></g>`;}).join('');
+ const nodes=t.nodes.map(n=>`<g class="topo-node ${n.id===selected?'selected':''}"><rect x="${n.x-77}" y="${n.y-32}" width="154" height="64" rx="12"/><text x="${n.x}" y="${n.y-4}" class="topo-name">${esc(n.id)}</text><text x="${n.x}" y="${n.y+18}" class="topo-kind">${esc(n.kind)}</text></g>`).join('');
+ return `<div class="topology"><div class="topology-scroll" tabindex="0" role="region" aria-label="Scrollable wiring diagram"><svg viewBox="0 0 760 410" role="img" aria-label="${esc(id)} intended topology. Numbered links match the wiring list below."><title>Intended topology — not live device status</title>${links}${nodes}</svg></div><p class="small muted">Solid lines: Ethernet · dashed blue: trunk · dotted: wireless. Numbers identify connections below.</p><label for="topology-device">Inspect a device and its ports</label><select id="topology-device" data-topology="${id}"><option value="">All devices</option>${t.nodes.map(n=>`<option ${n.id===selected?'selected':''} value="${esc(n.id)}">${esc(n.id)} · ${esc(n.kind)}</option>`).join('')}</select>${chosen?`<p class="topology-detail small"><strong>${esc(chosen.id)}</strong> · ${esc(chosen.detail||chosen.kind)}</p>`:''}<ol class="wiring-list">${t.links.map((l,i)=>`<li value="${i+1}" ${chosen&&l.a!==selected&&l.b!==selected?'hidden':''}><strong>${esc(l.a)} <code>${esc(l.ap)}</code></strong> ↔ <strong>${esc(l.b)} <code>${esc(l.bp)}</code></strong>${l.detail?`<br><span class="muted">${esc(l.detail)}</span>`:''}</li>`).join('')}</ol><p class="small muted">For Ethernet, use Packet Tracer’s automatic connection tool, or straight-through for PC–switch and switch–router links. Fa = FastEthernet; Gi = GigabitEthernet.</p>${t.note?`<div class="callout small">${esc(t.note)}</div>`:''}<p class="small muted">These port choices make unspecified cabling explicit. The walkthrough and address table below define configuration and expected results.</p></div>`;
+}

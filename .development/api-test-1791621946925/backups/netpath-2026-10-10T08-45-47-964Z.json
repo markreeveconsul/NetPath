@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "revision": 2,
+  "completed": [],
+  "attempts": [],
+  "notes": {},
+  "cards": {},
+  "labs": {},
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "sandbox": {
+    "version": 1,
+    "devices": [
+      {
+        "id": "pc1",
+        "kind": "pc",
+        "name": "Office PC",
+        "x": 200,
+        "y": 190,
+        "power": true,
+        "gateway": "192.168.10.1",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Eth0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.10.10",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "sw1",
+        "kind": "switch",
+        "name": "Access switch",
+        "x": 370,
+        "y": 190,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/2",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/3",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/4",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/1",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "r1",
+        "kind": "router",
+        "name": "Office router",
+        "x": 600,
+        "y": 190,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.10.1",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.20.1",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/0",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "srv1",
+        "kind": "server",
+        "name": "Attendance",
+        "x": 830,
+        "y": 330,
+        "power": true,
+        "gateway": "192.168.20.1",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Eth0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.20.10",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "id": "c1",
+        "a": {
+          "device": "pc1",
+          "port": "Eth0"
+        },
+        "b": {
+          "device": "sw1",
+          "port": "Gi0/1"
+        },
+        "media": "copper",
+        "cableType": "straight"
+      },
+      {
+        "id": "c2",
+        "a": {
+          "device": "sw1",
+          "port": "Gi0/2"
+        },
+        "b": {
+          "device": "r1",
+          "port": "Gi0/0"
+        },
+        "media": "copper",
+        "cableType": "straight"
+      },
+      {
+        "id": "c3",
+        "a": {
+          "device": "r1",
+          "port": "Gi0/1"
+        },
+        "b": {
+          "device": "srv1",
+          "port": "Eth0"
+        },
+        "media": "copper",
+        "cableType": "crossover"
+      }
+    ],
+    "realism": "exam"
+  },
+  "practitionerArchive": []
+}

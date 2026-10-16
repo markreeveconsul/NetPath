@@ -1,0 +1,130 @@
+[
+  {
+    "id": "pc-legacy",
+    "kind": "pc",
+    "name": "PC gacy",
+    "x": 150,
+    "y": 150,
+    "power": true,
+    "gateway": "",
+    "routes": [],
+    "ports": [
+      {
+        "name": "Eth0",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      }
+    ]
+  },
+  {
+    "id": "server-legacy",
+    "kind": "server",
+    "name": "SERVER gacy",
+    "x": 150,
+    "y": 150,
+    "power": true,
+    "gateway": "",
+    "routes": [],
+    "ports": [
+      {
+        "name": "Eth0",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      }
+    ]
+  },
+  {
+    "id": "switch-legacy",
+    "kind": "switch",
+    "name": "SWITCH gacy",
+    "x": 150,
+    "y": 150,
+    "power": true,
+    "gateway": "",
+    "routes": [],
+    "ports": [
+      {
+        "name": "Gi0/1",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      },
+      {
+        "name": "Gi0/2",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      },
+      {
+        "name": "Gi0/3",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      },
+      {
+        "name": "Gi0/4",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      },
+      {
+        "name": "SFP0/1",
+        "media": "fiber",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      }
+    ]
+  },
+  {
+    "id": "router-legacy",
+    "kind": "router",
+    "name": "ROUTER gacy",
+    "x": 150,
+    "y": 150,
+    "power": true,
+    "gateway": "",
+    "routes": [],
+    "ports": [
+      {
+        "name": "Gi0/0",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      },
+      {
+        "name": "Gi0/1",
+        "media": "copper",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      },
+      {
+        "name": "SFP0/0",
+        "media": "fiber",
+        "enabled": true,
+        "ip": "",
+        "prefix": 24,
+        "vlan": 1
+      }
+    ]
+  }
+]

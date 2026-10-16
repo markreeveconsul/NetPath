@@ -1,0 +1,33 @@
+NETPATH FOR WINDOWS
+
+1. Extract the entire ZIP to a normal folder (for example Documents\NetPath).
+   Do not run the launcher from inside the ZIP viewer.
+2. Install Node.js 24 or newer if it is not already installed.
+   The computer used to build this package already has Node.js installed.
+3. Double-click Start NetPath.cmd.
+4. The app opens at http://127.0.0.1:4173/ in your default browser.
+
+IF THE PAGE SAYS CONNECTION REFUSED:
+Double-click Run NetPath (keep open).cmd in Windows File Explorer.
+Keep its console window open, then visit http://127.0.0.1:4173/.
+VS Code Live Server does not run the database/API server this app needs.
+Opening a .cmd file in an editor or preview does not execute it.
+
+No npm package installation, account, or API key is needed for NetPath.
+Progress is created in the data folder beside the application.
+Use Settings & backups to export or restore your progress.
+
+This ZIP is a clean application package. It excludes development test data,
+browser drafts, and existing personal progress. To move your current progress,
+export it from the running app and restore that JSON in the new installation.
+If another NetPath instance is already running, the launcher opens that instance.
+
+NetPath 1.6 adds an isometric field lab and refreshed dark/light interface.
+Includes 37 lessons, 181 practice questions, 18 visual companion labs,
+saved lab test logs, dark/light themes, notes, and local backups.
+
+Packet Tracer itself is installed separately. Live integration, the complete native .pkt/.pka
+lab library, and full certification-course validation remain unfinished.
+One topology-only first-LAN starter is included.
+Read README.md for setup, backup, and current scope details.
+

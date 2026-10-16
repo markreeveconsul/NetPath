@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "revision": 14,
+  "completed": [],
+  "attempts": [],
+  "notes": {},
+  "cards": {},
+  "labs": {},
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "sandbox": {
+    "version": 1,
+    "devices": [
+      {
+        "id": "r1",
+        "kind": "router",
+        "name": "Office router",
+        "x": 600,
+        "y": 190,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.10.1",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.20.1",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/0",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      }
+    ],
+    "links": []
+  },
+  "practitionerArchive": []
+}

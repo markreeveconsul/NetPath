@@ -1,0 +1,14 @@
+{
+  "name": "netpath",
+  "version": "1.8.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests.mjs workbench-tests.mjs practitioner-tests.mjs certificate-tests.mjs final-exam-tests.mjs field-tests.mjs sandbox-tests.mjs sandbox-api-tests.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
+

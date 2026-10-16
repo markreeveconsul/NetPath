@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "revision": 86,
+  "completed": [],
+  "attempts": [],
+  "notes": {},
+  "cards": {},
+  "labs": {},
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "sandbox": {
+    "version": 1,
+    "devices": [
+      {
+        "id": "r1",
+        "kind": "router",
+        "name": "Office router",
+        "x": 915.7498115443807,
+        "y": 50,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.10.1",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.20.1",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/0",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "aaba2605-c48b-4394-9274-c1ff09d3b02a",
+        "kind": "pc",
+        "name": "PC b02a",
+        "x": 84.75460201269792,
+        "y": 249.65606637552438,
+        "power": true,
+        "gateway": "192.168.10.254",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Eth0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.10.20",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "96dc8a10-ecb9-43b5-be3c-2a93b640bcf7",
+        "kind": "switch",
+        "name": "SWITCH bcf7",
+        "x": 224.9724697430226,
+        "y": 94.32512397861473,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/2",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/3",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/4",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/1",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "cbc6be6e-cf2b-40a4-b1c2-335e33599012",
+        "kind": "pc",
+        "name": "PC 9012",
+        "x": 358.1727588341415,
+        "y": 238.58546261421344,
+        "power": true,
+        "gateway": "192.168.10.254",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Eth0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "192.168.10.30",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "df845ace-d4da-4d20-b824-e81b7e93add3",
+        "kind": "router",
+        "name": "ROUTER add3",
+        "x": 495.3368734217475,
+        "y": 73.51931123568792,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/0",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/0",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "08c6b9d3-7d48-417a-b78d-e975c5046efd",
+        "kind": "switch",
+        "name": "SWITCH 6efd",
+        "x": 770.7183114507674,
+        "y": 168.85702056076332,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/2",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/3",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/4",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/1",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      },
+      {
+        "id": "dde333dd-f78b-4db5-9d20-a6c35a5ba214",
+        "kind": "switch",
+        "name": "SWITCH a214",
+        "x": 491.73929465202554,
+        "y": 254.87353959771977,
+        "power": true,
+        "gateway": "",
+        "routes": [],
+        "ports": [
+          {
+            "name": "Gi0/1",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/2",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/3",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "Gi0/4",
+            "media": "copper",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          },
+          {
+            "name": "SFP0/1",
+            "media": "fiber",
+            "enabled": true,
+            "ip": "",
+            "prefix": 24,
+            "vlan": 1
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "id": "4c3d32e1-8f78-49a5-a4e0-d4931ddd99c9",
+        "a": {
+          "device": "aaba2605-c48b-4394-9274-c1ff09d3b02a",
+          "port": "Eth0"
+        },
+        "b": {
+          "device": "96dc8a10-ecb9-43b5-be3c-2a93b640bcf7",
+          "port": "Gi0/1"
+        },
+        "media": "copper"
+      },
+      {
+        "id": "f2d44e30-5909-422e-987f-b3ce791d1d9e",
+        "a": {
+          "device": "96dc8a10-ecb9-43b5-be3c-2a93b640bcf7",
+          "port": "Gi0/2"
+        },
+        "b": {
+          "device": "cbc6be6e-cf2b-40a4-b1c2-335e33599012",
+          "port": "Eth0"
+        },
+        "media": "copper"
+      }
+    ],
+    "realism": "beginner"
+  },
+  "practitionerArchive": []
+}

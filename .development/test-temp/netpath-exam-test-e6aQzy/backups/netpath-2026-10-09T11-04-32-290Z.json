@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "revision": 0,
+  "completed": [],
+  "attempts": [],
+  "notes": {},
+  "cards": {},
+  "labs": {},
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "practitionerArchive": [
+    {
+      "id": "927dbe41-bbfc-4053-ad6b-08740eed3ac4",
+      "type": "foundations",
+      "difficulty": "applied",
+      "timed": false,
+      "name": "Test Learner",
+      "started": 1791543872098,
+      "deadline": null,
+      "finished": null,
+      "items": [
+        {
+          "id": "layers-advanced-tuple",
+          "domain": "1",
+          "prompt": "A client opens TCP from port 51000 to a server on 443. Which port pair normally appears in the server response?",
+          "options": [
+            "Source 51000, destination 443",
+            "Source 443, destination 51000",
+            "Source 443, destination 443"
+          ],
+          "correct": 1,
+          "explanation": "The response reverses the transport endpoints. Ports identify transport conversations rather than physical switch ports."
+        },
+        {
+          "id": "address-audit-advanced-5",
+          "domain": "1",
+          "prompt": "How many usable addresses does a conventional /26 offer?",
+          "options": [
+            "30",
+            "62",
+            "64"
+          ],
+          "correct": 1,
+          "explanation": "64 total addresses minus network and broadcast gives 62."
+        },
+        {
+          "id": "dhcp-dns-advanced-relay-placement",
+          "domain": "1",
+          "prompt": "Where should the helper for a remote DHCP server normally be applied?",
+          "options": [
+            "Only the remote server’s loopback",
+            "Every PC’s DNS field",
+            "The router interface receiving the client broadcasts"
+          ],
+          "correct": 2,
+          "explanation": "Relay begins on the client-facing interface so it can forward the original client broadcast toward the server."
+        },
+        {
+          "id": "316e4fa8-1247-4e98-84f8-ac6c1e69ef66",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.21.137.28/26. Enter a dotted IPv4 address.",
+          "correct": "172.21.137.63",
+          "explanation": "172.21.137.28/26 belongs to 172.21.137.0/26; broadcast 172.21.137.63; 62 ordinary usable host addresses."
+        },
+        {
+          "id": "72c614a1-7b4f-4bc9-bf59-50058a94a64d",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.22.122.248/27. Enter digits only.",
+          "correct": "30",
+          "explanation": "172.22.122.248/27 belongs to 172.22.122.224/27; broadcast 172.22.122.255; 30 ordinary usable host addresses."
+        },
+        {
+          "id": "journey-advanced-next-hop",
+          "domain": "1",
+          "prompt": "A /24 client sends to a server outside its subnet. Its ARP request should normally ask for which address?",
+          "options": [
+            "The local gateway IP",
+            "The remote server IP on every LAN",
+            "The DNS server regardless of destination"
+          ],
+          "correct": 0,
+          "explanation": "The Ethernet next hop for a remote destination is normally the on-link gateway. The IP packet still targets the remote server."
+        },
+        {
+          "id": "8a4e96b5-738b-4522-ba02-acac203fad15",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.17.162.163/26. Enter digits only.",
+          "correct": "62",
+          "explanation": "172.17.162.163/26 belongs to 172.17.162.128/26; broadcast 172.17.162.191; 62 ordinary usable host addresses."
+        },
+        {
+          "id": "ethernet-advanced-aging",
+          "domain": "1",
+          "prompt": "A host moves to another switch port. Why are dynamic learning and aging useful?",
+          "options": [
+            "They disable VLAN boundaries",
+            "They assign a new IPv4 subnet",
+            "They let forwarding state adapt to changing attachments"
+          ],
+          "correct": 2,
+          "explanation": "Source learning can update the host location, and aging removes unused stale entries. Neither assigns IP addresses."
+        },
+        {
+          "id": "ipv6-advanced-link-local-next-hop",
+          "domain": "1",
+          "prompt": "Why specify an exit interface with an IPv6 link-local static next hop?",
+          "options": [
+            "Link-local addresses are globally unique server names",
+            "IPv6 has no routing tables",
+            "The link identifies the scope of the next-hop address"
+          ],
+          "correct": 2,
+          "explanation": "A link-local address is meaningful on a particular link and can be reused on other links."
+        },
+        {
+          "id": "wireless-advanced-uplink",
+          "domain": "1",
+          "prompt": "Must every AP connect to a trunk port in every wireless architecture?",
+          "options": [
+            "No AP ever uses a wired uplink",
+            "Yes, without exception",
+            "No; access/trunk needs depend on traffic-switching design"
+          ],
+          "correct": 2,
+          "explanation": "Central versus local traffic switching and VLAN design affect the required AP uplink configuration."
+        },
+        {
+          "id": "vlsm-advanced-allocation",
+          "domain": "1",
+          "prompt": "A subnet must hold 50 endpoint addresses plus one gateway. What is the smallest conventional prefix that fits?",
+          "options": [
+            "/28",
+            "/26",
+            "/27"
+          ],
+          "correct": 1,
+          "explanation": "A /26 supplies 62 conventional usable addresses. /27 supplies only 30, too few for 51 required addresses."
+        },
+        {
+          "id": "ethernet-advanced-source-learning",
+          "domain": "1",
+          "prompt": "A switch receives source MAC A and destination MAC B on Fa0/3. Which entry can it learn directly from this arrival?",
+          "options": [
+            "A is the default gateway",
+            "A belongs on Fa0/3 in the receiving VLAN",
+            "B belongs on Fa0/3"
+          ],
+          "correct": 1,
+          "explanation": "Learning uses the source address and incoming port. The destination lookup is a separate forwarding step."
+        },
+        {
+          "id": "address-audit-advanced-0",
+          "domain": "1",
+          "prompt": "Which reservation overlaps 10.20.0.0/26?",
+          "options": [
+            "10.20.0.32/27",
+            "10.20.0.96/28",
+            "10.20.0.64/27"
+          ],
+          "correct": 0,
+          "explanation": "The /26 reserves .0 through .63."
+        },
+        {
+          "id": "ipv6-advanced-compression",
+          "domain": "1",
+          "prompt": "Which representation correctly compresses 2001:0db8:0010:0000:0000:0000:0000:0010?",
+          "options": [
+            "2001:db8:10::10",
+            "2001:db8:10:10",
+            "2001::db8::10:10"
+          ],
+          "correct": 0,
+          "explanation": "Only one :: is permitted in an IPv6 address; it represents the required consecutive zero groups."
+        },
+        {
+          "id": "hardware-advanced-counters",
+          "domain": "1",
+          "prompt": "An interface has 12 old CRC errors. Which next observation best distinguishes a current impairment from an old event?",
+          "options": [
+            "The device hostname",
+            "The number of DNS records",
+            "Whether CRC errors increase during the test interval"
+          ],
+          "correct": 2,
+          "explanation": "Counter deltas show current behavior. A historical nonzero total alone does not establish an ongoing fault."
+        },
+        {
+          "id": "714bc2ca-8c8a-49a8-b287-3bb069c955b2",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.18.135.217/26. Enter a dotted IPv4 address.",
+          "correct": "172.18.135.192",
+          "explanation": "172.18.135.217/26 belongs to 172.18.135.192/26; broadcast 172.18.135.255; 62 ordinary usable host addresses."
+        },
+        {
+          "id": "bb578583-f65e-4165-9b73-850294532425",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.28.242.2/28. Enter a dotted IPv4 address.",
+          "correct": "172.28.242.0",
+          "explanation": "172.28.242.2/28 belongs to 172.28.242.0/28; broadcast 172.28.242.15; 14 ordinary usable host addresses."
+        },
+        {
+          "id": "address-audit-advanced-1",
+          "domain": "1",
+          "prompt": "Which gateway is usable in 10.20.0.64/27?",
+          "options": [
+            "10.20.0.64",
+            "10.20.0.95",
+            "10.20.0.65"
+          ],
+          "correct": 2,
+          "explanation": "The usable interval is .65 through .94."
+        },
+        {
+          "id": "address-audit-advanced-7",
+          "domain": "1",
+          "prompt": "Which reservation should be allocated first in a simple VLSM plan?",
+          "options": [
+            "The smallest",
+            "The largest",
+            "Alphabetically first"
+          ],
+          "correct": 1,
+          "explanation": "Largest-first allocation reduces fragmentation."
+        },
+        {
+          "id": "hardware-advanced-vrf",
+          "domain": "1",
+          "prompt": "Two tenants reuse the same subnet but require independent routing tables on one device. Which mechanism fits?",
+          "options": [
+            "Separate VRFs",
+            "A longer copper cable",
+            "One shared ARP entry"
+          ],
+          "correct": 0,
+          "explanation": "A VRF creates a separate routing/forwarding context. Any communication between contexts needs an intentional design."
+        },
+        {
+          "id": "subnetting-advanced-usable-end",
+          "domain": "1",
+          "prompt": "What is the final conventional usable host in 10.8.7.144/28?",
+          "options": [
+            "10.8.7.160",
+            "10.8.7.158",
+            "10.8.7.159"
+          ],
+          "correct": 1,
+          "explanation": "The block spans .144–.159. Network and broadcast consume its endpoints, leaving .145–.158 for conventional hosts."
+        },
+        {
+          "id": "wireless-advanced-association-lease",
+          "domain": "1",
+          "prompt": "A client associates successfully but obtains no DHCP lease. What should be investigated next?",
+          "options": [
+            "Only the already accepted passphrase",
+            "Replacing the website certificate first",
+            "WLAN-to-VLAN mapping and the DHCP path"
+          ],
+          "correct": 2,
+          "explanation": "Association and IP configuration are separate stages. VLAN carriage, relay, and DHCP service can fail after association succeeds."
+        },
+        {
+          "id": "e4509d92-79e0-4bad-b2d8-6a8f2883fbbf",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.17.80.217/28. Enter a dotted IPv4 address.",
+          "correct": "172.17.80.223",
+          "explanation": "172.17.80.217/28 belongs to 172.17.80.208/28; broadcast 172.17.80.223; 14 ordinary usable host addresses."
+        },
+        {
+          "id": "vlsm-advanced-alignment",
+          "domain": "1",
+          "prompt": "Which proposed /26 network boundary is aligned within 192.168.1.0/24?",
+          "options": [
+            "192.168.1.100",
+            "192.168.1.200",
+            "192.168.1.128"
+          ],
+          "correct": 2,
+          "explanation": "/26 blocks start at .0, .64, .128, and .192. An arbitrary host value cannot be used as the network boundary."
+        }
+      ],
+      "answers": {},
+      "index": 0
+    }
+  ]
+}

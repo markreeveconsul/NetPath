@@ -1,0 +1,677 @@
+{
+  "version": 1,
+  "revision": 1,
+  "completed": [],
+  "attempts": [],
+  "notes": {},
+  "cards": {},
+  "labs": {},
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "practitionerArchive": [
+    {
+      "id": "2eea27be-42f3-43dd-a217-f873c9c3f83a",
+      "type": "comprehensive",
+      "difficulty": "challenge",
+      "timed": false,
+      "name": "QA Learner",
+      "started": 1791608280553,
+      "deadline": null,
+      "finished": 1791608280553,
+      "items": [
+        {
+          "id": "etherchannel-advanced-passive",
+          "domain": "2",
+          "prompt": "Both sides of an LACP bundle are configured passive. Why may the channel not form?",
+          "options": [
+            "Neither side initiates LACP negotiation",
+            "Passive doubles the member bandwidth",
+            "Passive mode routes only IPv6"
+          ],
+          "correct": 0,
+          "explanation": "At least one side must actively initiate negotiation in this pairing."
+        },
+        {
+          "id": "ce5fabe9-722f-4797-b23b-f92436b5f76e",
+          "domain": "3",
+          "practical": true,
+          "prompt": "Installed routes: 10.0.0.0/8 via 192.0.2.98 (AD 1); 10.185.5.64/28 via 192.0.2.45 (AD 110); default via 192.0.2.216. Which next-hop IPv4 address is eligible for 10.185.5.77? Enter only the next-hop address.",
+          "correct": "192.0.2.45",
+          "explanation": "The more specific matching installed prefix wins; a lower AD on the less specific route does not override it."
+        },
+        {
+          "id": "subnetting-advanced-cross-octet",
+          "domain": "1",
+          "prompt": "Which is the network for 172.16.31.250/20?",
+          "options": [
+            "172.16.31.0",
+            "172.16.0.0",
+            "172.16.16.0"
+          ],
+          "correct": 2,
+          "explanation": "/20 has third-octet increments of 16. Octet 31 belongs to the 16–31 block."
+        },
+        {
+          "id": "apis-advanced-accepted-status",
+          "domain": "5",
+          "prompt": "An API returns HTTP 202 for a network change. Which conclusion is justified?",
+          "options": [
+            "The request must have failed",
+            "The change is verified on every device",
+            "The request was accepted for processing; completion still needs checking"
+          ],
+          "correct": 2,
+          "explanation": "202 indicates acceptance, not necessarily completed processing or validated network behavior."
+        },
+        {
+          "id": "operations-advanced-shape-police",
+          "domain": "5",
+          "prompt": "Which action best describes shaping rather than policing?",
+          "options": [
+            "Encrypting all traffic",
+            "Assigning a DNS record",
+            "Buffering traffic to smooth its transmission rate"
+          ],
+          "correct": 2,
+          "explanation": "Shaping uses queues to regulate output. Policing typically drops or remarks excess according to its policy."
+        },
+        {
+          "id": "troubleshooting-advanced-dns-isolation",
+          "domain": "2",
+          "prompt": "An application works by IP but not by name. Which focused test is most useful next?",
+          "options": [
+            "Inspect resolver settings and query the intended DNS record",
+            "Disable STP everywhere",
+            "Change the physical cable immediately"
+          ],
+          "correct": 0,
+          "explanation": "The working IP connection narrows the investigation toward name resolution or name-dependent application behavior."
+        },
+        {
+          "id": "nat-advanced-pool-limit",
+          "domain": "4",
+          "prompt": "A dynamic NAT pool without overload has three addresses, all allocated. What can prevent another host receiving a mapping?",
+          "options": [
+            "A missing VLAN name only",
+            "Too many DNS aliases",
+            "Exhaustion of available one-to-one pool addresses"
+          ],
+          "correct": 2,
+          "explanation": "Dynamic NAT without overload requires an available inside-global pool address for another simultaneous mapping."
+        },
+        {
+          "id": "address-audit-advanced-6",
+          "domain": "1",
+          "prompt": "Why document unused ranges in a summary?",
+          "options": [
+            "They cannot receive traffic",
+            "The summary can attract traffic to those ranges",
+            "They automatically become DHCP pools"
+          ],
+          "correct": 1,
+          "explanation": "A summary covers all addresses in its range."
+        },
+        {
+          "id": "policy-audit-advanced-1",
+          "domain": "4",
+          "prompt": "Which evidence tests a restriction most directly?",
+          "options": [
+            "The ACL has a name",
+            "Only an allowed host works",
+            "Both allowed and denied flows behave as expected"
+          ],
+          "correct": 2,
+          "explanation": "Positive and negative tests are needed."
+        },
+        {
+          "id": "address-audit-advanced-2",
+          "domain": "1",
+          "prompt": "What exactly summarizes adjacent 10.20.0.0/26 and 10.20.0.64/26?",
+          "options": [
+            "10.20.0.64/25",
+            "10.20.0.0/24",
+            "10.20.0.0/25"
+          ],
+          "correct": 2,
+          "explanation": "The combined interval is .0 through .127, an aligned /25."
+        },
+        {
+          "id": "redundancy-advanced-virtual",
+          "domain": "3",
+          "prompt": "After a first-hop redundancy failover, which client setting is intended to remain stable?",
+          "options": [
+            "The active router process ID",
+            "The virtual default-gateway IP",
+            "The DHCP server’s disk serial number"
+          ],
+          "correct": 1,
+          "explanation": "The redundant routers coordinate the virtual gateway so clients need not reconfigure their gateway for the role change."
+        },
+        {
+          "id": "controllers-advanced-accepted",
+          "domain": "5",
+          "prompt": "A controller accepts a policy request while one target device is offline. What proves completion?",
+          "options": [
+            "Only the number of API calls",
+            "Device convergence and intended behavior, not acceptance alone",
+            "Only the HTTP success message"
+          ],
+          "correct": 1,
+          "explanation": "Acceptance can precede execution. Check deployment status, actual state, and traffic behavior."
+        },
+        {
+          "id": "ipv6-advanced-compression",
+          "domain": "1",
+          "prompt": "Which representation correctly compresses 2001:0db8:0010:0000:0000:0000:0000:0010?",
+          "options": [
+            "2001:db8:10:10",
+            "2001:db8:10::10",
+            "2001::db8::10:10"
+          ],
+          "correct": 1,
+          "explanation": "Only one :: is permitted in an IPv6 address; it represents the required consecutive zero groups."
+        },
+        {
+          "id": "route-audit-advanced-8",
+          "domain": "3",
+          "prompt": "What is a useful controlled routing fault?",
+          "options": [
+            "Delete the whole production table",
+            "Change all masks at once",
+            "Remove one return route in a saved disposable lab"
+          ],
+          "correct": 2,
+          "explanation": "A single reversible fault supports a clear hypothesis."
+        },
+        {
+          "id": "c35449fe-b205-4581-9409-ef44c068c546",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.18.84.106/20. Enter a dotted IPv4 address.",
+          "correct": "172.18.95.255",
+          "explanation": "172.18.84.106/20 belongs to 172.18.80.0/20; broadcast 172.18.95.255; 4094 ordinary usable host addresses."
+        },
+        {
+          "id": "70dd49e6-5cb5-4401-8c6d-6d3e8c5d625f",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.17.93.112/29. Enter a dotted IPv4 address.",
+          "correct": "172.17.93.112",
+          "explanation": "172.17.93.112/29 belongs to 172.17.93.112/29; broadcast 172.17.93.119; 6 ordinary usable host addresses."
+        },
+        {
+          "id": "07065313-2ca6-4381-94e9-3fbd88be1e16",
+          "domain": "4",
+          "practical": true,
+          "prompt": "An ACL has these entries in order: 10 deny ip 192.168.92.0 0.0.0.255 any; 20 permit ip host 192.168.92.14 any; 30 permit ip any any. What happens to a packet sourced by 192.168.92.14? Enter permit or deny.",
+          "correct": "deny",
+          "explanation": "ACLs stop at the first matching entry. Here the subnet deny matches first."
+        },
+        {
+          "id": "static-advanced-floating-limit",
+          "domain": "3",
+          "prompt": "A remote service fails but the primary static route remains installed. Why might a floating route not activate?",
+          "options": [
+            "Floating routes only support public addresses",
+            "Its preference is not an end-to-end service health probe",
+            "The backup must always have a lower distance"
+          ],
+          "correct": 1,
+          "explanation": "A higher-distance backup waits for the preferred route to stop winning. Detecting remote failure can require additional mechanisms."
+        },
+        {
+          "id": "route-audit-advanced-6",
+          "domain": "3",
+          "prompt": "Why preserve the source address when repeating a diagnostic test?",
+          "options": [
+            "It keeps return-path and policy conditions comparable",
+            "It disables all ACLs",
+            "It changes the destination MAC forever"
+          ],
+          "correct": 0,
+          "explanation": "Changing the source can change the path or filtering result."
+        },
+        {
+          "id": "switch-audit-advanced-1",
+          "domain": "2",
+          "prompt": "An unknown unicast arrives in VLAN 20. Where is it flooded?",
+          "options": [
+            "All VLANs",
+            "Only the router",
+            "Eligible VLAN 20 ports except ingress"
+          ],
+          "correct": 2,
+          "explanation": "Flooding remains inside the VLAN and obeys forwarding state."
+        },
+        {
+          "id": "30dd7577-7618-459d-9833-82b5d161afdc",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.30.13.238/28. Enter digits only.",
+          "correct": "14",
+          "explanation": "172.30.13.238/28 belongs to 172.30.13.224/28; broadcast 172.30.13.239; 14 ordinary usable host addresses."
+        },
+        {
+          "id": "configuration-ai-advanced-idempotency",
+          "domain": "5",
+          "prompt": "What is the aim of an idempotent configuration operation?",
+          "options": [
+            "It must discard the desired state",
+            "Reapplying the same intent should avoid unnecessary changes",
+            "Every run must reboot the device"
+          ],
+          "correct": 1,
+          "explanation": "Idempotence helps converge repeatedly on the same state. It depends on the actual operation/module, not the presence of automation alone."
+        },
+        {
+          "id": "policy-audit-advanced-4",
+          "domain": "4",
+          "prompt": "What should a flow requirement identify?",
+          "options": [
+            "Only a cable color",
+            "Source, destination, protocol and service",
+            "Only a department name"
+          ],
+          "correct": 1,
+          "explanation": "A concrete flow can be implemented and tested."
+        },
+        {
+          "id": "route-audit-advanced-2",
+          "domain": "3",
+          "prompt": "When is administrative distance relevant?",
+          "options": [
+            "Overriding every longer prefix",
+            "Resolving DNS names",
+            "Selecting route sources for the same prefix"
+          ],
+          "correct": 2,
+          "explanation": "AD compares routing sources, not different matching prefix lengths."
+        },
+        {
+          "id": "policy-audit-advanced-2",
+          "domain": "4",
+          "prompt": "Where should a narrow permit exception appear relative to its broad deny?",
+          "options": [
+            "After it",
+            "Before it",
+            "Order never matters"
+          ],
+          "correct": 1,
+          "explanation": "The exception must match before the broader deny."
+        },
+        {
+          "id": "etherchannel-advanced-single-flow",
+          "domain": "2",
+          "prompt": "Two equal-speed interfaces form a channel. Why might one long TCP flow use only one member?",
+          "options": [
+            "The second member must always be physically broken",
+            "LACP only carries broadcasts",
+            "Flow hashing commonly assigns a flow to one member"
+          ],
+          "correct": 2,
+          "explanation": "Aggregation can increase capacity across multiple flows without multiplying the bandwidth of each individual flow."
+        },
+        {
+          "id": "access-security-advanced-vpn-scope",
+          "domain": "4",
+          "prompt": "Which statement distinguishes a typical remote-access VPN from a site-to-site VPN?",
+          "options": [
+            "Site-to-site VPNs eliminate all endpoint policy",
+            "Remote access never uses encryption",
+            "Remote access connects an individual client; site-to-site connects networks"
+          ],
+          "correct": 2,
+          "explanation": "The connection scope differs. Neither model removes the need for authentication, authorization, or endpoint policy."
+        },
+        {
+          "id": "troubleshooting-advanced-one-change",
+          "domain": "2",
+          "prompt": "Why record one controlled change and its observed result before moving to the next?",
+          "options": [
+            "It eliminates the need to retest",
+            "It guarantees no second fault exists",
+            "It preserves evidence about cause and recovery"
+          ],
+          "correct": 2,
+          "explanation": "Controlled changes make the investigation interpretable. Verification is still needed and multiple faults remain possible."
+        },
+        {
+          "id": "24b83c31-f579-4a14-9d90-923e8c5a7d19",
+          "domain": "3",
+          "practical": true,
+          "prompt": "Installed routes: 10.0.0.0/8 via 192.0.2.95 (AD 1); 10.28.5.96/28 via 192.0.2.216 (AD 110); default via 192.0.2.32. Which next-hop IPv4 address is eligible for 10.28.5.109? Enter only the next-hop address.",
+          "correct": "192.0.2.216",
+          "explanation": "The more specific matching installed prefix wins; a lower AD on the less specific route does not override it."
+        },
+        {
+          "id": "hardware-advanced-vrf",
+          "domain": "1",
+          "prompt": "Two tenants reuse the same subnet but require independent routing tables on one device. Which mechanism fits?",
+          "options": [
+            "A longer copper cable",
+            "One shared ARP entry",
+            "Separate VRFs"
+          ],
+          "correct": 2,
+          "explanation": "A VRF creates a separate routing/forwarding context. Any communication between contexts needs an intentional design."
+        }
+      ],
+      "answers": {
+        "0": 0,
+        "1": "192.0.2.45",
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 0,
+        "6": 2,
+        "7": 1,
+        "8": 2,
+        "9": 2,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 2,
+        "14": "172.18.95.255",
+        "15": "172.17.93.112",
+        "16": "deny",
+        "17": 1,
+        "18": 0,
+        "19": 2,
+        "20": "14",
+        "21": 1,
+        "22": 1,
+        "23": 2,
+        "24": 1,
+        "25": 2,
+        "26": 2,
+        "27": 2,
+        "28": "192.0.2.216",
+        "29": 2
+      },
+      "index": 0
+    },
+    {
+      "id": "8a160ce9-eda2-4046-afab-75d0bdbab2d1",
+      "type": "foundations",
+      "difficulty": "applied",
+      "timed": false,
+      "name": "Test Learner",
+      "started": 1791608280099,
+      "deadline": null,
+      "finished": 1791608280520,
+      "items": [
+        {
+          "id": "f0a645c4-7a08-4519-bfa9-77076f385e05",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.31.201.121/27. Enter a dotted IPv4 address.",
+          "correct": "172.31.201.96",
+          "explanation": "172.31.201.121/27 belongs to 172.31.201.96/27; broadcast 172.31.201.127; 30 ordinary usable host addresses."
+        },
+        {
+          "id": "27a328ae-a7a5-47b0-8d4c-3e6bdfb92333",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.21.111.133/28. Enter digits only.",
+          "correct": "14",
+          "explanation": "172.21.111.133/28 belongs to 172.21.111.128/28; broadcast 172.21.111.143; 14 ordinary usable host addresses."
+        },
+        {
+          "id": "journey-advanced-ping-scope",
+          "domain": "1",
+          "prompt": "A gateway ping succeeds, but a website name does not resolve. Which test best narrows this new symptom?",
+          "options": [
+            "Change the VLAN without checking it",
+            "Query the configured DNS resolver",
+            "Replace every switch"
+          ],
+          "correct": 1,
+          "explanation": "Gateway reachability and name resolution test different functions. Inspect resolver settings and the DNS response."
+        },
+        {
+          "id": "address-audit-advanced-0",
+          "domain": "1",
+          "prompt": "Which reservation overlaps 10.20.0.0/26?",
+          "options": [
+            "10.20.0.32/27",
+            "10.20.0.64/27",
+            "10.20.0.96/28"
+          ],
+          "correct": 0,
+          "explanation": "The /26 reserves .0 through .63."
+        },
+        {
+          "id": "9216e661-b631-42b7-a532-c259438367dc",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.24.38.167/28. Enter digits only.",
+          "correct": "14",
+          "explanation": "172.24.38.167/28 belongs to 172.24.38.160/28; broadcast 172.24.38.175; 14 ordinary usable host addresses."
+        },
+        {
+          "id": "vlsm-advanced-alignment",
+          "domain": "1",
+          "prompt": "Which proposed /26 network boundary is aligned within 192.168.1.0/24?",
+          "options": [
+            "192.168.1.100",
+            "192.168.1.128",
+            "192.168.1.200"
+          ],
+          "correct": 1,
+          "explanation": "/26 blocks start at .0, .64, .128, and .192. An arbitrary host value cannot be used as the network boundary."
+        },
+        {
+          "id": "vlsm-advanced-allocation",
+          "domain": "1",
+          "prompt": "A subnet must hold 50 endpoint addresses plus one gateway. What is the smallest conventional prefix that fits?",
+          "options": [
+            "/26",
+            "/27",
+            "/28"
+          ],
+          "correct": 0,
+          "explanation": "A /26 supplies 62 conventional usable addresses. /27 supplies only 30, too few for 51 required addresses."
+        },
+        {
+          "id": "aa535f4e-2caa-4fbd-a42a-791dbfd86f21",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.18.26.79/27. Enter a dotted IPv4 address.",
+          "correct": "172.18.26.95",
+          "explanation": "172.18.26.79/27 belongs to 172.18.26.64/27; broadcast 172.18.26.95; 30 ordinary usable host addresses."
+        },
+        {
+          "id": "address-audit-advanced-6",
+          "domain": "1",
+          "prompt": "Why document unused ranges in a summary?",
+          "options": [
+            "The summary can attract traffic to those ranges",
+            "They automatically become DHCP pools",
+            "They cannot receive traffic"
+          ],
+          "correct": 0,
+          "explanation": "A summary covers all addresses in its range."
+        },
+        {
+          "id": "wireless-advanced-uplink",
+          "domain": "1",
+          "prompt": "Must every AP connect to a trunk port in every wireless architecture?",
+          "options": [
+            "No; access/trunk needs depend on traffic-switching design",
+            "No AP ever uses a wired uplink",
+            "Yes, without exception"
+          ],
+          "correct": 0,
+          "explanation": "Central versus local traffic switching and VLAN design affect the required AP uplink configuration."
+        },
+        {
+          "id": "c1faa22e-a1b8-4e40-bc6c-cb6cb37d5a90",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.20.20.66/28. Enter a dotted IPv4 address.",
+          "correct": "172.20.20.79",
+          "explanation": "172.20.20.66/28 belongs to 172.20.20.64/28; broadcast 172.20.20.79; 14 ordinary usable host addresses."
+        },
+        {
+          "id": "address-audit-advanced-4",
+          "domain": "1",
+          "prompt": "Which /28 network is aligned?",
+          "options": [
+            "192.168.1.24/28",
+            "192.168.1.32/28",
+            "192.168.1.18/28"
+          ],
+          "correct": 1,
+          "explanation": "/28 blocks start at multiples of 16."
+        },
+        {
+          "id": "ipv6-advanced-compression",
+          "domain": "1",
+          "prompt": "Which representation correctly compresses 2001:0db8:0010:0000:0000:0000:0000:0010?",
+          "options": [
+            "2001::db8::10:10",
+            "2001:db8:10::10",
+            "2001:db8:10:10"
+          ],
+          "correct": 1,
+          "explanation": "Only one :: is permitted in an IPv6 address; it represents the required consecutive zero groups."
+        },
+        {
+          "id": "ipv6-advanced-link-local-next-hop",
+          "domain": "1",
+          "prompt": "Why specify an exit interface with an IPv6 link-local static next hop?",
+          "options": [
+            "IPv6 has no routing tables",
+            "The link identifies the scope of the next-hop address",
+            "Link-local addresses are globally unique server names"
+          ],
+          "correct": 1,
+          "explanation": "A link-local address is meaningful on a particular link and can be reused on other links."
+        },
+        {
+          "id": "hardware-advanced-counters",
+          "domain": "1",
+          "prompt": "An interface has 12 old CRC errors. Which next observation best distinguishes a current impairment from an old event?",
+          "options": [
+            "Whether CRC errors increase during the test interval",
+            "The device hostname",
+            "The number of DNS records"
+          ],
+          "correct": 0,
+          "explanation": "Counter deltas show current behavior. A historical nonzero total alone does not establish an ongoing fault."
+        },
+        {
+          "id": "address-audit-advanced-8",
+          "domain": "1",
+          "prompt": "Which evidence best verifies a repaired address plan?",
+          "options": [
+            "Only a saved filename",
+            "Recorded host settings and local/remote tests",
+            "A neat diagram alone"
+          ],
+          "correct": 1,
+          "explanation": "Configuration and observed reachability support the plan."
+        },
+        {
+          "id": "layers-advanced-security",
+          "domain": "1",
+          "prompt": "Which statement correctly separates reliability from confidentiality?",
+          "options": [
+            "All UDP applications are unencrypted",
+            "A TCP handshake authenticates the human user",
+            "TCP retransmission does not itself encrypt application data"
+          ],
+          "correct": 2,
+          "explanation": "Transport reliability, encryption, and user authentication are different functions. Applications can add protection over either transport model."
+        },
+        {
+          "id": "ipv4-advanced-private-range",
+          "domain": "1",
+          "prompt": "Which address is outside the RFC 1918 private ranges?",
+          "options": [
+            "172.20.1.1",
+            "10.80.1.1",
+            "172.32.1.1"
+          ],
+          "correct": 2,
+          "explanation": "The private 172 range is 172.16.0.0 through 172.31.255.255. Similar decimal prefixes outside that interval are not private for that reason."
+        },
+        {
+          "id": "dhcp-dns-advanced-record-types",
+          "domain": "1",
+          "prompt": "Which DNS record type provides an IPv6 address?",
+          "options": [
+            "CNAME",
+            "AAAA",
+            "A"
+          ],
+          "correct": 1,
+          "explanation": "AAAA records contain IPv6 addresses; A records contain IPv4 addresses and CNAME supplies an alias."
+        },
+        {
+          "id": "address-audit-advanced-7",
+          "domain": "1",
+          "prompt": "Which reservation should be allocated first in a simple VLSM plan?",
+          "options": [
+            "The largest",
+            "Alphabetically first",
+            "The smallest"
+          ],
+          "correct": 0,
+          "explanation": "Largest-first allocation reduces fragmentation."
+        },
+        {
+          "id": "subnetting-advanced-usable-end",
+          "domain": "1",
+          "prompt": "What is the final conventional usable host in 10.8.7.144/28?",
+          "options": [
+            "10.8.7.159",
+            "10.8.7.158",
+            "10.8.7.160"
+          ],
+          "correct": 1,
+          "explanation": "The block spans .144–.159. Network and broadcast consume its endpoints, leaving .145–.158 for conventional hosts."
+        },
+        {
+          "id": "963a4123-dc49-4d7e-aca6-c66f88183f67",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.19.115.132/26. Enter a dotted IPv4 address.",
+          "correct": "172.19.115.128",
+          "explanation": "172.19.115.132/26 belongs to 172.19.115.128/26; broadcast 172.19.115.191; 62 ordinary usable host addresses."
+        },
+        {
+          "id": "address-audit-advanced-5",
+          "domain": "1",
+          "prompt": "How many usable addresses does a conventional /26 offer?",
+          "options": [
+            "30",
+            "64",
+            "62"
+          ],
+          "correct": 2,
+          "explanation": "64 total addresses minus network and broadcast gives 62."
+        },
+        {
+          "id": "ethernet-advanced-aging",
+          "domain": "1",
+          "prompt": "A host moves to another switch port. Why are dynamic learning and aging useful?",
+          "options": [
+            "They disable VLAN boundaries",
+            "They assign a new IPv4 subnet",
+            "They let forwarding state adapt to changing attachments"
+          ],
+          "correct": 2,
+          "explanation": "Source learning can update the host location, and aging removes unused stale entries. Neither assigns IP addresses."
+        }
+      ],
+      "answers": {},
+      "index": 0
+    }
+  ]
+}

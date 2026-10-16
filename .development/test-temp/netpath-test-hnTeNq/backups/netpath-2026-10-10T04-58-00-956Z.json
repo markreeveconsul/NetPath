@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "revision": 1,
+  "completed": [
+    "journey"
+  ],
+  "attempts": [],
+  "notes": {
+    "journey": "A switch learns source MAC addresses."
+  },
+  "cards": {},
+  "labs": {
+    "first-lan": [
+      0
+    ]
+  },
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "fieldLab": {
+    "gateway": {
+      "config": {
+        "gateway": "192.168.10.1",
+        "vlan": 20,
+        "serverPolicy": "permit"
+      },
+      "checks": {
+        "printer": false,
+        "server": false
+      },
+      "log": [
+        "Office PC: 192.168.10.70/26. Type help for commands."
+      ],
+      "closed": false
+    }
+  },
+  "activeQuiz": {
+    "questionIds": [
+      "journey-1",
+      "layers-1",
+      "hardware-1",
+      "ethernet-1",
+      "ipv4-1",
+      "subnetting-1",
+      "vlsm-1",
+      "ipv6-1",
+      "address-audit-1",
+      "vlan-1",
+      "stp-1",
+      "etherchannel-1",
+      "switch-audit-1",
+      "route-choice-1",
+      "static-1",
+      "ospf-1",
+      "redundancy-1",
+      "ospfv3-1",
+      "route-audit-1",
+      "dhcp-dns-1",
+      "nat-1",
+      "operations-1",
+      "wireless-1",
+      "dns-records-1",
+      "secure-transfer-1",
+      "access-security-1",
+      "acl-1",
+      "l2-security-1",
+      "aaa-management-1",
+      "switch-guards-1"
+    ],
+    "answers": [
+      1,
+      0
+    ],
+    "index": 2,
+    "deadline": 1791610980367
+  },
+  "confidence": {
+    "1.1": 1
+  },
+  "addressPlan": {
+    "network": "192.168.8.0",
+    "prefix": 24,
+    "requirements": "Engineering: 60\nOperations: 28\nGuests: 12"
+  },
+  "toolAttempts": [
+    {
+      "kind": "routes",
+      "task": "specific",
+      "score": 1,
+      "total": 1,
+      "date": "2026-10-10T04:58:00.367Z"
+    }
+  ],
+  "evidence": {
+    "first-lan": [
+      {
+        "id": "lan-test",
+        "date": "2026-10-10T04:58:00.368Z",
+        "source": "PC-A",
+        "destination": "192.168.1.20",
+        "protocol": "ICMP",
+        "expected": "allowed",
+        "observed": "allowed",
+        "output": "Four replies observed."
+      }
+    ]
+  },
+  "practitionerArchive": []
+}

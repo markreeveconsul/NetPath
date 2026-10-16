@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import {makeAttempt,examTypes,examStore,readiness,validateArchive,scoreExam} from './practitioner.mjs';
+import {lessons} from './public/course.js';
+const solved=a=>{a.items.forEach((q,i)=>a.answers[i]=q.correct);a.finished=Date.now();return a;};
+test('final unlock requires every lesson and a passing Challenge attempt in every track',()=>{const attempts=examTypes.map(t=>solved(makeAttempt(t.id,'challenge',false,'Test'))),ids=lessons.map(l=>l.id);assert.equal(readiness(ids,attempts).unlocked,true);assert.equal(readiness(ids.slice(1),attempts).unlocked,false);assert.equal(readiness(ids,attempts.slice(1)).unlocked,false);attempts[0].difficulty='core';assert.equal(readiness(ids,attempts).unlocked,false);});
+test('server store enforces final prerequisites and covers every lesson in 60 questions',()=>{const db=new DatabaseSync(':memory:');let completed=[];const store=examStore(db,()=>completed);const input={type:'readiness',difficulty:'challenge',timed:true,name:'Test'};assert.throws(()=>store.start(input),/locked/);completed=lessons.map(l=>l.id);assert.throws(()=>store.start(input),/locked/);store.restore(examTypes.map(t=>solved(makeAttempt(t.id,'challenge',false,'Test'))));const a=store.start(input);assert.equal(a.items.length,60);assert.equal(a.deadline-a.started,90*60000);const raw=store.archive().find(x=>x.id===a.id);assert.deepEqual([...new Set(raw.items.filter(q=>q.lesson).map(q=>q.lesson))].sort(),completed.sort());validateArchive(store.archive());assert.equal(scoreExam(solved(raw)).passed,true);db.close();});

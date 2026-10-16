@@ -1,0 +1,42 @@
+import fs from 'node:fs';
+const read=p=>fs.readFileSync(p,'utf8'),write=(p,s)=>fs.writeFileSync(p,s);
+fs.mkdirSync('.development/phase1-d-before',{recursive:true});for(const p of ['network-sandbox.js','network-sandbox.css','sandbox-editor.js','app.js'])fs.copyFileSync('public/'+p,'.development/phase1-d-before/'+p);
+write('public/sandbox-visuals.js',`import {DEVICE_ICONS,DEVICE_ICON_VIEWBOX,linkStyle} from './device-icons.js';
+export function deviceSprite(){return '<svg class="ns-sprite" width="0" height="0" aria-hidden="true"><defs>'+Object.entries(DEVICE_ICONS).map(([id,paths])=>'<symbol id="np-device-'+id+'" viewBox="'+DEVICE_ICON_VIEWBOX+'">'+paths+'</symbol>').join('')+'</defs></svg>';}
+export function DeviceIcon(id,size=48){if(!Object.hasOwn(DEVICE_ICONS,id))throw Error('Unknown device icon');return '<svg class="np-icon" width="'+size+'" height="'+size+'" viewBox="'+DEVICE_ICON_VIEWBOX+'" aria-hidden="true"><use href="#np-device-'+id+'"/></svg>';}
+export function wireAttributes(state,media){const s=linkStyle(state,media);return 'stroke="'+s.stroke+'" stroke-width="'+s.width+'" stroke-dasharray="'+(s.dash||'none')+'" stroke-linecap="'+(s.cap||'round')+'"';}
+`);
+let e=read('public/sandbox-editor.js');
+e=e.replace("import {DEVICE_ICONS,DEVICE_ICON_VIEWBOX} from './device-icons.js';","import {DeviceIcon,wireAttributes} from './sandbox-visuals.js';");
+e=e.replace(/<svg width="0" height="0" aria-hidden="true"><defs>.*?<\/defs><\/svg>/,'');
+e=e.replace(/<svg class="np-icon" width="38".*?<\/svg>/,'${DeviceIcon(d.iconId,38)}');
+e=e.replace('export function portDots(d)', 'export function portDots(d,net)');
+e=e.replace('d.ports.map(p=>`<button',"d.ports.map(p=>{const link=net.links.find(l=>[l.a,l.b].some(end=>end.device===d.id&&end.port===p.name)),state=link?(cableStatus(net,link).up?'up':'down'):'off';return `<button");
+e=e.replace('class="ns-port-dot"','class="ns-port-dot ${state}"');
+e=e.replace('title="${p.name} · ${p.media}"></button>`)', 'title="${p.name} · ${p.media} · ${state===\'off\'?\'No link\':state}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg></button>`;})');
+e=e.replace("return '<line id=\"ns-draft\" class=\"ns-draft\"", "return '<line '+wireAttributes('draft')+' id=\"ns-draft\" class=\"ns-draft\"");
+write('public/sandbox-editor.js',e);
+let s=read('public/network-sandbox.js');s="import {DeviceIcon,deviceSprite,wireAttributes} from './sandbox-visuals.js';\n"+s;
+s=s.replace('let net,selected=', 'let zoom=100,inspectorOpen=false;\nlet net,selected=');
+s=s.replace('class="ns-wire ${linkUp(net,l)?\'up\':\'down\'} ${l.media}"', 'class="ns-wire" ${wireAttributes(linkUp(net,l)?\'up\':\'down\',l.media)}');
+s=s.replace(/<span class="ns-device-shape" aria-hidden="true">.*?<\/span>/,'<span class="ns-device-shape">${DeviceIcon(d.kind,48)}</span>');
+s=s.replace("<small>${labels[d.kind]} · ${d.power?'On':'Off'}</small>","<small>${esc(['pc','server'].includes(d.kind)?d.ports.find(p=>p.ip)?.ip||labels[d.kind]:labels[d.kind])}</small>");
+s=s.replace('${portDots(d)}','${portDots(d,net)}');
+s=s.replace('class="ns-board" id="ns-board"','class="ns-board" id="ns-board" style="--ns-zoom:${zoom/100}"');
+const headStart=s.indexOf('<div class="page-head">'),headEnd=s.indexOf('<div class="ns-toolbar"',headStart);
+s=s.slice(0,headStart)+'${deviceSprite()}'+s.slice(headEnd);
+s=s.replace('aria-label="Device palette"','aria-label="Sandbox tools"');
+s=s.replace('<button id="ns-example">', '<label class="ns-realism">Zoom<select id="ns-zoom">${[75,100,125,150,200].map(n=>`<option value="${n}" ${zoom===n?\'selected\':\'\'}>${n}%</option>`).join(\'\')}</select></label><details class="ns-topology"><summary>Topology</summary><div class="ns-topology-actions"><button id="ns-example">');
+s=s.replace('</label></div><p id="ns-place-status"','</label></div></details><button id="ns-inspector-toggle" aria-controls="ns-side" aria-expanded="${inspectorOpen}">Configure / test</button></div><p id="ns-place-status"');
+s=s.replace('<div class="ns-layout"><section><div class="ns-board-scroll">${board()}</div>${dock()}', '<div class="ns-layout"><section class="ns-stage" aria-label="Topology workspace"><div class="ns-board-scroll">${board()}</div>${dock()}</section><aside id="ns-side" class="ns-inspector ${inspectorOpen?\'is-open\':\'\'}" aria-label="Configuration and testing"><h2 class="ns-side-heading">Inspector</h2>${inspector()}');
+s=s.replace('<section class="ns-panel"><h2>Test connectivity</h2>', '<details class="ns-panel" ${result?\'open\':\'\'}><summary>Test connectivity</summary>');
+s=s.replace('</div></section>${tables()}${diagnostics()}</section><aside class="ns-inspector">${inspector()}</aside></div><details','</div></details>${tables()}${diagnostics()}<details');
+s=s.replace('routes use configuration order.</p></details></div>`','routes use configuration order.</p></details></aside></div></div>`');
+s=s.replace("bindEditor({root,net,change,render,toast,select:id=>{selected=id;playing=false;}});",`bindEditor({root,net,change,render,toast,select:id=>{selected=id;playing=false;}});
+ root.querySelector('#ns-zoom').onchange=e=>{zoom=Number(e.target.value);root.querySelector('#ns-board').style.setProperty('--ns-zoom',zoom/100);};
+ root.querySelector('#ns-inspector-toggle').onclick=e=>{inspectorOpen=!inspectorOpen;e.currentTarget.setAttribute('aria-expanded',String(inspectorOpen));root.querySelector('#ns-side').classList.toggle('is-open',inspectorOpen);};
+ const topology=root.querySelector('.ns-topology');topology.addEventListener('keydown',e=>{if(e.key==='Escape'){e.stopPropagation();topology.open=false;topology.querySelector('summary').focus();}});
+ topology.addEventListener('focusout',()=>queueMicrotask(()=>{if(!topology.contains(document.activeElement))topology.open=false;}));`);
+write('public/network-sandbox.js',s);
+let app=read('public/app.js').replace("document.body.classList.toggle('field-mode',route().page==='field');","document.body.classList.toggle('field-mode',route().page==='field');document.body.classList.toggle('sandbox-mode',route().page==='sandbox');");write('public/app.js',app);
+let t=read('catalog-tests.mjs');t=t.replace("const nodes=h=>h.match(/<button class=\"ns-node[^]*?<\\/button>/g);assert.deepEqual(nodes(html),nodes(legacy));","assert.equal((html.match(/<symbol /g)||[]).length,12);assert.equal((html.match(/data-ns-device=/g)||[]).length,old.devices.length);for(const d of old.devices)assert.ok(html.includes('href=\"#np-device-'+d.kind+'\"'));");write('catalog-tests.mjs',t);

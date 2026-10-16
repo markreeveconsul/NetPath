@@ -1,0 +1,677 @@
+{
+  "version": 1,
+  "revision": 1,
+  "completed": [],
+  "attempts": [],
+  "notes": {},
+  "cards": {},
+  "labs": {},
+  "settings": {
+    "name": "Learner",
+    "hours": 5,
+    "examDate": "",
+    "examVersion": "undecided"
+  },
+  "lastLesson": "journey",
+  "practitionerArchive": [
+    {
+      "id": "212647c1-f463-4285-b2fa-ada3c91c77f3",
+      "type": "comprehensive",
+      "difficulty": "challenge",
+      "timed": false,
+      "name": "QA Learner",
+      "started": 1791621948028,
+      "deadline": null,
+      "finished": 1791621948029,
+      "items": [
+        {
+          "id": "policy-audit-advanced-6",
+          "domain": "4",
+          "prompt": "A broad permit precedes a restrictive deny. What is the concern?",
+          "options": [
+            "The deny always overrides it",
+            "The permit may shadow the deny",
+            "The interface must fail"
+          ],
+          "correct": 1,
+          "explanation": "First-match processing can make later entries unreachable."
+        },
+        {
+          "id": "ethernet-advanced-source-learning",
+          "domain": "1",
+          "prompt": "A switch receives source MAC A and destination MAC B on Fa0/3. Which entry can it learn directly from this arrival?",
+          "options": [
+            "B belongs on Fa0/3",
+            "A is the default gateway",
+            "A belongs on Fa0/3 in the receiving VLAN"
+          ],
+          "correct": 2,
+          "explanation": "Learning uses the source address and incoming port. The destination lookup is a separate forwarding step."
+        },
+        {
+          "id": "troubleshooting-advanced-dns-isolation",
+          "domain": "2",
+          "prompt": "An application works by IP but not by name. Which focused test is most useful next?",
+          "options": [
+            "Inspect resolver settings and query the intended DNS record",
+            "Disable STP everywhere",
+            "Change the physical cable immediately"
+          ],
+          "correct": 0,
+          "explanation": "The working IP connection narrows the investigation toward name resolution or name-dependent application behavior."
+        },
+        {
+          "id": "ospf-advanced-two-way",
+          "domain": "3",
+          "prompt": "On a broadcast segment, two DROTHER neighbors are 2-WAY with each other. What is the best interpretation?",
+          "options": [
+            "The area must be removed",
+            "All 2-WAY states prove a broken link",
+            "This can be normal; inspect their DR/BDR adjacencies"
+          ],
+          "correct": 2,
+          "explanation": "Not all pairs on a broadcast network form FULL adjacencies. DROTHER routers form full adjacencies with the DR/BDR."
+        },
+        {
+          "id": "switch-audit-advanced-1",
+          "domain": "2",
+          "prompt": "An unknown unicast arrives in VLAN 20. Where is it flooded?",
+          "options": [
+            "Eligible VLAN 20 ports except ingress",
+            "Only the router",
+            "All VLANs"
+          ],
+          "correct": 0,
+          "explanation": "Flooding remains inside the VLAN and obeys forwarding state."
+        },
+        {
+          "id": "route-audit-advanced-5",
+          "domain": "3",
+          "prompt": "10.4.8.17 matches /8 and 10.4.8.0/24. Which prefix is used?",
+          "options": [
+            "10.4.8.0/24",
+            "10.0.0.0/8",
+            "Neither"
+          ],
+          "correct": 0,
+          "explanation": "The /24 is more specific."
+        },
+        {
+          "id": "l2-security-advanced-static-binding",
+          "domain": "4",
+          "prompt": "DAI blocks a legitimate statically addressed client. Which condition deserves inspection?",
+          "options": [
+            "Whether the client needs an OSPF router ID",
+            "Whether all switch ports should become trusted immediately",
+            "Whether it has a valid binding or explicit validation policy"
+          ],
+          "correct": 2,
+          "explanation": "A static client may lack a DHCP-learned binding. Plan appropriate validation rather than broadly disabling protection."
+        },
+        {
+          "id": "apis-advanced-accepted-status",
+          "domain": "5",
+          "prompt": "An API returns HTTP 202 for a network change. Which conclusion is justified?",
+          "options": [
+            "The request must have failed",
+            "The request was accepted for processing; completion still needs checking",
+            "The change is verified on every device"
+          ],
+          "correct": 1,
+          "explanation": "202 indicates acceptance, not necessarily completed processing or validated network behavior."
+        },
+        {
+          "id": "ipv4-advanced-private-range",
+          "domain": "1",
+          "prompt": "Which address is outside the RFC 1918 private ranges?",
+          "options": [
+            "10.80.1.1",
+            "172.20.1.1",
+            "172.32.1.1"
+          ],
+          "correct": 2,
+          "explanation": "The private 172 range is 172.16.0.0 through 172.31.255.255. Similar decimal prefixes outside that interval are not private for that reason."
+        },
+        {
+          "id": "fc19aef5-93d7-4181-b655-fb7367181945",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.16.102.119/27. Enter a dotted IPv4 address.",
+          "correct": "172.16.102.96",
+          "explanation": "172.16.102.119/27 belongs to 172.16.102.96/27; broadcast 172.16.102.127; 30 ordinary usable host addresses."
+        },
+        {
+          "id": "apis-advanced-json-type",
+          "domain": "5",
+          "prompt": "In {\"enabled\":true,\"vlan\":10}, what type is enabled?",
+          "options": [
+            "An array",
+            "A boolean",
+            "A string"
+          ],
+          "correct": 1,
+          "explanation": "Unquoted true is a JSON boolean. \"true\" would be a string and would not be the same value/type."
+        },
+        {
+          "id": "route-audit-advanced-7",
+          "domain": "3",
+          "prompt": "What does successful ICMP prove about HTTPS?",
+          "options": [
+            "TLS certificates are valid",
+            "Only that this ICMP exchange succeeded",
+            "HTTPS is always healthy"
+          ],
+          "correct": 1,
+          "explanation": "Service-specific testing is still required."
+        },
+        {
+          "id": "6a06807b-b705-403d-8085-b33923da6427",
+          "domain": "3",
+          "practical": true,
+          "prompt": "Installed routes: 10.0.0.0/8 via 192.0.2.202 (AD 1); 10.107.5.32/28 via 192.0.2.142 (AD 110); default via 192.0.2.71. Which next-hop IPv4 address is eligible for 10.107.5.37? Enter only the next-hop address.",
+          "correct": "192.0.2.142",
+          "explanation": "The more specific matching installed prefix wins; a lower AD on the less specific route does not override it."
+        },
+        {
+          "id": "journey-advanced-ping-scope",
+          "domain": "1",
+          "prompt": "A gateway ping succeeds, but a website name does not resolve. Which test best narrows this new symptom?",
+          "options": [
+            "Change the VLAN without checking it",
+            "Replace every switch",
+            "Query the configured DNS resolver"
+          ],
+          "correct": 2,
+          "explanation": "Gateway reachability and name resolution test different functions. Inspect resolver settings and the DNS response."
+        },
+        {
+          "id": "operations-advanced-shape-police",
+          "domain": "5",
+          "prompt": "Which action best describes shaping rather than policing?",
+          "options": [
+            "Buffering traffic to smooth its transmission rate",
+            "Encrypting all traffic",
+            "Assigning a DNS record"
+          ],
+          "correct": 0,
+          "explanation": "Shaping uses queues to regulate output. Policing typically drops or remarks excess according to its policy."
+        },
+        {
+          "id": "switch-audit-advanced-4",
+          "domain": "2",
+          "prompt": "Local VLAN 20 works but cross-switch VLAN 20 fails. Which evidence is directly useful?",
+          "options": [
+            "Monitor brightness",
+            "DNS search suffix",
+            "Trunk allowed VLAN list"
+          ],
+          "correct": 2,
+          "explanation": "The inter-switch VLAN path may be missing."
+        },
+        {
+          "id": "address-audit-advanced-6",
+          "domain": "1",
+          "prompt": "Why document unused ranges in a summary?",
+          "options": [
+            "The summary can attract traffic to those ranges",
+            "They cannot receive traffic",
+            "They automatically become DHCP pools"
+          ],
+          "correct": 0,
+          "explanation": "A summary covers all addresses in its range."
+        },
+        {
+          "id": "controllers-advanced-accepted",
+          "domain": "5",
+          "prompt": "A controller accepts a policy request while one target device is offline. What proves completion?",
+          "options": [
+            "Device convergence and intended behavior, not acceptance alone",
+            "Only the number of API calls",
+            "Only the HTTP success message"
+          ],
+          "correct": 0,
+          "explanation": "Acceptance can precede execution. Check deployment status, actual state, and traffic behavior."
+        },
+        {
+          "id": "vlan-advanced-native",
+          "domain": "2",
+          "prompt": "An 802.1Q trunk has different native VLANs on its ends. What needs correction?",
+          "options": [
+            "The inconsistent interpretation of untagged traffic",
+            "Every host must use DHCP",
+            "The number of router loopbacks"
+          ],
+          "correct": 0,
+          "explanation": "Native VLAN consistency matters because untagged traffic is associated with the configured native VLAN."
+        },
+        {
+          "id": "d638410c-86b1-467f-b6b9-99e892272611",
+          "domain": "3",
+          "practical": true,
+          "prompt": "Installed routes: 10.0.0.0/8 via 192.0.2.238 (AD 1); 10.74.5.128/28 via 192.0.2.40 (AD 110); default via 192.0.2.110. Which next-hop IPv4 address is eligible for 10.74.5.142? Enter only the next-hop address.",
+          "correct": "192.0.2.40",
+          "explanation": "The more specific matching installed prefix wins; a lower AD on the less specific route does not override it."
+        },
+        {
+          "id": "5514fa04-2122-4d36-b601-af15a34d70dd",
+          "domain": "4",
+          "practical": true,
+          "prompt": "An ACL has these entries in order: 10 permit ip host 192.168.127.11 any; 20 deny ip 192.168.127.0 0.0.0.255 any; 30 permit ip any any. What happens to a packet sourced by 192.168.127.11? Enter permit or deny.",
+          "correct": "permit",
+          "explanation": "ACLs stop at the first matching entry. Here the host permit matches first."
+        },
+        {
+          "id": "policy-audit-advanced-1",
+          "domain": "4",
+          "prompt": "Which evidence tests a restriction most directly?",
+          "options": [
+            "The ACL has a name",
+            "Both allowed and denied flows behave as expected",
+            "Only an allowed host works"
+          ],
+          "correct": 1,
+          "explanation": "Positive and negative tests are needed."
+        },
+        {
+          "id": "c43689d7-4ccf-4f7b-a200-8ccc9ea68c4e",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.31.19.9/20. Enter a dotted IPv4 address.",
+          "correct": "172.31.31.255",
+          "explanation": "172.31.19.9/20 belongs to 172.31.16.0/20; broadcast 172.31.31.255; 4094 ordinary usable host addresses."
+        },
+        {
+          "id": "stp-advanced-role-state",
+          "domain": "2",
+          "prompt": "Which pair distinguishes a Rapid STP role from a state?",
+          "options": [
+            "Forwarding is a role; root is a state",
+            "Alternate is a role; discarding is a state",
+            "Both words identify IP routing metrics"
+          ],
+          "correct": 1,
+          "explanation": "Roles describe topology function, while states describe forwarding/learning behavior."
+        },
+        {
+          "id": "route-choice-advanced-route-brackets",
+          "domain": "3",
+          "prompt": "In an OSPF route’s [110/20] field, what does 20 normally represent?",
+          "options": [
+            "TTL",
+            "OSPF metric",
+            "Subnet mask length"
+          ],
+          "correct": 1,
+          "explanation": "The displayed pair is administrative distance followed by metric; OSPF uses cost as its metric."
+        },
+        {
+          "id": "redundancy-advanced-upstream",
+          "domain": "3",
+          "prompt": "The active gateway loses its upstream path but its LAN interface remains up. What design consideration matters?",
+          "options": [
+            "Tracking relevant upstream health to influence gateway role",
+            "Duplicating both routers’ physical IPs",
+            "Increasing the PC monitor resolution"
+          ],
+          "correct": 0,
+          "explanation": "LAN-side liveness alone may not reflect remote reachability. Appropriate tracking can help align the active role with a usable path."
+        },
+        {
+          "id": "nat-advanced-selector",
+          "domain": "4",
+          "prompt": "An ACL selects addresses for NAT. Does this by itself mean nonmatching traffic is denied on the interface?",
+          "options": [
+            "Yes; every ACL definition filters every interface",
+            "Yes; NAT always replaces firewall policy",
+            "No; NAT selection and interface filtering are separate contexts"
+          ],
+          "correct": 2,
+          "explanation": "The meaning of a match depends on how the ACL is used. A NAT selector is not automatically an applied traffic filter."
+        },
+        {
+          "id": "l2-security-advanced-trust",
+          "domain": "4",
+          "prompt": "For DHCP snooping, which path is the intended trust candidate in a basic access design?",
+          "options": [
+            "The legitimate DHCP-server-facing path",
+            "Every user-facing port",
+            "Only ports with short cables"
+          ],
+          "correct": 0,
+          "explanation": "Trust follows the legitimate server direction. Trusting all client ports defeats the purpose of rejecting rogue server messages."
+        },
+        {
+          "id": "fe75e4e2-3194-4865-9d81-28ebade59c25",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.16.77.63/27. Enter digits only.",
+          "correct": "30",
+          "explanation": "172.16.77.63/27 belongs to 172.16.77.32/27; broadcast 172.16.77.63; 30 ordinary usable host addresses."
+        },
+        {
+          "id": "address-audit-advanced-3",
+          "domain": "1",
+          "prompt": "How should overlap be checked?",
+          "options": [
+            "Compare only the gateways",
+            "Compare hostnames",
+            "Compare whole network-to-broadcast intervals"
+          ],
+          "correct": 2,
+          "explanation": "Two reservations may overlap even when their gateways differ."
+        }
+      ],
+      "answers": {
+        "0": 1,
+        "1": 2,
+        "2": 0,
+        "3": 2,
+        "4": 0,
+        "5": 0,
+        "6": 2,
+        "7": 1,
+        "8": 2,
+        "9": "172.16.102.96",
+        "10": 1,
+        "11": 1,
+        "12": "192.0.2.142",
+        "13": 2,
+        "14": 0,
+        "15": 2,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": "192.0.2.40",
+        "20": "permit",
+        "21": 1,
+        "22": "172.31.31.255",
+        "23": 1,
+        "24": 1,
+        "25": 0,
+        "26": 2,
+        "27": 0,
+        "28": "30",
+        "29": 2
+      },
+      "index": 0
+    },
+    {
+      "id": "30c99203-fb08-44e8-96c6-be804a2f5938",
+      "type": "foundations",
+      "difficulty": "applied",
+      "timed": false,
+      "name": "Test Learner",
+      "started": 1791621947579,
+      "deadline": null,
+      "finished": 1791621948005,
+      "items": [
+        {
+          "id": "fc0b1593-e8c8-4bc9-86d3-dabcd017b248",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.25.197.15/26. Enter a dotted IPv4 address.",
+          "correct": "172.25.197.63",
+          "explanation": "172.25.197.15/26 belongs to 172.25.197.0/26; broadcast 172.25.197.63; 62 ordinary usable host addresses."
+        },
+        {
+          "id": "07d3568a-bd90-4630-a07e-fc2797039e36",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.30.133.72/25. Enter digits only.",
+          "correct": "126",
+          "explanation": "172.30.133.72/25 belongs to 172.30.133.0/25; broadcast 172.30.133.127; 126 ordinary usable host addresses."
+        },
+        {
+          "id": "7a58c818-ecdd-494b-bd68-8d44f5436c35",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.18.92.186/27. Enter a dotted IPv4 address.",
+          "correct": "172.18.92.160",
+          "explanation": "172.18.92.186/27 belongs to 172.18.92.160/27; broadcast 172.18.92.191; 30 ordinary usable host addresses."
+        },
+        {
+          "id": "ipv4-advanced-gateway-prefix",
+          "domain": "1",
+          "prompt": "For 192.168.12.70/26, which is an ordinary valid on-link gateway candidate?",
+          "options": [
+            "192.168.12.65",
+            "192.168.12.1",
+            "192.168.12.127"
+          ],
+          "correct": 0,
+          "explanation": "The network is .64/26, with usable .65–.126. .1 is outside the subnet and .127 is its broadcast address."
+        },
+        {
+          "id": "journey-advanced-next-hop",
+          "domain": "1",
+          "prompt": "A /24 client sends to a server outside its subnet. Its ARP request should normally ask for which address?",
+          "options": [
+            "The DNS server regardless of destination",
+            "The remote server IP on every LAN",
+            "The local gateway IP"
+          ],
+          "correct": 2,
+          "explanation": "The Ethernet next hop for a remote destination is normally the on-link gateway. The IP packet still targets the remote server."
+        },
+        {
+          "id": "dhcp-dns-advanced-record-types",
+          "domain": "1",
+          "prompt": "Which DNS record type provides an IPv6 address?",
+          "options": [
+            "AAAA",
+            "CNAME",
+            "A"
+          ],
+          "correct": 0,
+          "explanation": "AAAA records contain IPv6 addresses; A records contain IPv4 addresses and CNAME supplies an alias."
+        },
+        {
+          "id": "vlsm-advanced-alignment",
+          "domain": "1",
+          "prompt": "Which proposed /26 network boundary is aligned within 192.168.1.0/24?",
+          "options": [
+            "192.168.1.128",
+            "192.168.1.200",
+            "192.168.1.100"
+          ],
+          "correct": 0,
+          "explanation": "/26 blocks start at .0, .64, .128, and .192. An arbitrary host value cannot be used as the network boundary."
+        },
+        {
+          "id": "subnetting-advanced-usable-end",
+          "domain": "1",
+          "prompt": "What is the final conventional usable host in 10.8.7.144/28?",
+          "options": [
+            "10.8.7.158",
+            "10.8.7.159",
+            "10.8.7.160"
+          ],
+          "correct": 0,
+          "explanation": "The block spans .144–.159. Network and broadcast consume its endpoints, leaving .145–.158 for conventional hosts."
+        },
+        {
+          "id": "hardware-advanced-vrf",
+          "domain": "1",
+          "prompt": "Two tenants reuse the same subnet but require independent routing tables on one device. Which mechanism fits?",
+          "options": [
+            "Separate VRFs",
+            "One shared ARP entry",
+            "A longer copper cable"
+          ],
+          "correct": 0,
+          "explanation": "A VRF creates a separate routing/forwarding context. Any communication between contexts needs an intentional design."
+        },
+        {
+          "id": "address-audit-advanced-4",
+          "domain": "1",
+          "prompt": "Which /28 network is aligned?",
+          "options": [
+            "192.168.1.24/28",
+            "192.168.1.18/28",
+            "192.168.1.32/28"
+          ],
+          "correct": 2,
+          "explanation": "/28 blocks start at multiples of 16."
+        },
+        {
+          "id": "ipv6-advanced-compression",
+          "domain": "1",
+          "prompt": "Which representation correctly compresses 2001:0db8:0010:0000:0000:0000:0000:0010?",
+          "options": [
+            "2001:db8:10:10",
+            "2001:db8:10::10",
+            "2001::db8::10:10"
+          ],
+          "correct": 1,
+          "explanation": "Only one :: is permitted in an IPv6 address; it represents the required consecutive zero groups."
+        },
+        {
+          "id": "address-audit-advanced-0",
+          "domain": "1",
+          "prompt": "Which reservation overlaps 10.20.0.0/26?",
+          "options": [
+            "10.20.0.64/27",
+            "10.20.0.32/27",
+            "10.20.0.96/28"
+          ],
+          "correct": 1,
+          "explanation": "The /26 reserves .0 through .63."
+        },
+        {
+          "id": "ipv6-advanced-link-local-next-hop",
+          "domain": "1",
+          "prompt": "Why specify an exit interface with an IPv6 link-local static next hop?",
+          "options": [
+            "The link identifies the scope of the next-hop address",
+            "Link-local addresses are globally unique server names",
+            "IPv6 has no routing tables"
+          ],
+          "correct": 0,
+          "explanation": "A link-local address is meaningful on a particular link and can be reused on other links."
+        },
+        {
+          "id": "vlsm-advanced-allocation",
+          "domain": "1",
+          "prompt": "A subnet must hold 50 endpoint addresses plus one gateway. What is the smallest conventional prefix that fits?",
+          "options": [
+            "/26",
+            "/28",
+            "/27"
+          ],
+          "correct": 0,
+          "explanation": "A /26 supplies 62 conventional usable addresses. /27 supplies only 30, too few for 51 required addresses."
+        },
+        {
+          "id": "address-audit-advanced-2",
+          "domain": "1",
+          "prompt": "What exactly summarizes adjacent 10.20.0.0/26 and 10.20.0.64/26?",
+          "options": [
+            "10.20.0.0/25",
+            "10.20.0.64/25",
+            "10.20.0.0/24"
+          ],
+          "correct": 0,
+          "explanation": "The combined interval is .0 through .127, an aligned /25."
+        },
+        {
+          "id": "959ce572-63f2-4e87-8022-f06882adbb4b",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the number of usable host addresses for 172.24.139.22/25. Enter digits only.",
+          "correct": "126",
+          "explanation": "172.24.139.22/25 belongs to 172.24.139.0/25; broadcast 172.24.139.127; 126 ordinary usable host addresses."
+        },
+        {
+          "id": "ipv4-advanced-private-range",
+          "domain": "1",
+          "prompt": "Which address is outside the RFC 1918 private ranges?",
+          "options": [
+            "10.80.1.1",
+            "172.20.1.1",
+            "172.32.1.1"
+          ],
+          "correct": 2,
+          "explanation": "The private 172 range is 172.16.0.0 through 172.31.255.255. Similar decimal prefixes outside that interval are not private for that reason."
+        },
+        {
+          "id": "address-audit-advanced-8",
+          "domain": "1",
+          "prompt": "Which evidence best verifies a repaired address plan?",
+          "options": [
+            "Only a saved filename",
+            "A neat diagram alone",
+            "Recorded host settings and local/remote tests"
+          ],
+          "correct": 2,
+          "explanation": "Configuration and observed reachability support the plan."
+        },
+        {
+          "id": "address-audit-advanced-1",
+          "domain": "1",
+          "prompt": "Which gateway is usable in 10.20.0.64/27?",
+          "options": [
+            "10.20.0.64",
+            "10.20.0.95",
+            "10.20.0.65"
+          ],
+          "correct": 2,
+          "explanation": "The usable interval is .65 through .94."
+        },
+        {
+          "id": "address-audit-advanced-3",
+          "domain": "1",
+          "prompt": "How should overlap be checked?",
+          "options": [
+            "Compare whole network-to-broadcast intervals",
+            "Compare hostnames",
+            "Compare only the gateways"
+          ],
+          "correct": 0,
+          "explanation": "Two reservations may overlap even when their gateways differ."
+        },
+        {
+          "id": "dhcp-dns-advanced-relay-placement",
+          "domain": "1",
+          "prompt": "Where should the helper for a remote DHCP server normally be applied?",
+          "options": [
+            "Every PC’s DNS field",
+            "Only the remote server’s loopback",
+            "The router interface receiving the client broadcasts"
+          ],
+          "correct": 2,
+          "explanation": "Relay begins on the client-facing interface so it can forward the original client broadcast toward the server."
+        },
+        {
+          "id": "address-audit-advanced-6",
+          "domain": "1",
+          "prompt": "Why document unused ranges in a summary?",
+          "options": [
+            "The summary can attract traffic to those ranges",
+            "They automatically become DHCP pools",
+            "They cannot receive traffic"
+          ],
+          "correct": 0,
+          "explanation": "A summary covers all addresses in its range."
+        },
+        {
+          "id": "5b4952d3-97a7-4dcd-be44-2e2ce19451f9",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the broadcast address for 172.28.200.6/25. Enter a dotted IPv4 address.",
+          "correct": "172.28.200.127",
+          "explanation": "172.28.200.6/25 belongs to 172.28.200.0/25; broadcast 172.28.200.127; 126 ordinary usable host addresses."
+        },
+        {
+          "id": "633e7fd8-9d72-4935-89d0-2fff6aee6856",
+          "domain": "1",
+          "practical": true,
+          "prompt": "Give the network address for 172.26.47.99/28. Enter a dotted IPv4 address.",
+          "correct": "172.26.47.96",
+          "explanation": "172.26.47.99/28 belongs to 172.26.47.96/28; broadcast 172.26.47.111; 14 ordinary usable host addresses."
+        }
+      ],
+      "answers": {},
+      "index": 0
+    }
+  ]
+}
